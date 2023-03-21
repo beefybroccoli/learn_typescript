@@ -7,13 +7,13 @@ enum Status {
 }
 
 interface ToDo {
-  id: number;
-  title: String;
-  status: Status;
-  completedOn?: Date;
+  id: Number
+  title: string
+  status: Status
+  completedOn?: Date
 }
 
-const todoItems = [
+const todoItems: ToDo[] = [
   {
     id: 1,
     title: "Learn HTML",
@@ -22,23 +22,23 @@ const todoItems = [
   },
   { id: 2, title: "Learn TypeScript", status: Status.InProgress },
   { id: 3, title: "Write the best app in the world", status: Status.ToDo },
-];
+]
 
-function addTodoItem(todo) {
+function addTodoItem(task: string): ToDo {
   const id = getNextId(todoItems);
 
-  const newTodo = {
+  const newToDo = {
     id,
-    title: todo,
-    status: "todo",
-  };
+    title: task,
+    status: Status.InProgress,
+  }
 
-  todoItems.push(newTodo);
+  todoItems.push(newToDo);
 
-  return newTodo;
+  return newToDo;
 }
 
-function getNextId(items) {
+function getNextId<T extends {id: number}>(items: T[]):number {
   return items.reduce((max, x) => (x.id > max ? max : x.id), 0) + 1;
 }
 
