@@ -7,7 +7,7 @@ enum Status {
 }
 
 interface ToDo {
-  id: Number
+  id: number
   title: string
   status: Status
   completedOn?: Date
