@@ -13,16 +13,21 @@ interface Contact {
     address: Address;
 }
 
+// interface ContactEvent {
+//     contactId: number;
+// }
+
 interface ContactEvent {
-    contactId: number;
+    //the type of contactId match "id" in Contact type
+    contactId: Contact["id"];
 }
 
 interface ContactDeletedEvent extends ContactEvent { 
 }
 
 interface ContactStatusChangedEvent extends ContactEvent { 
-    oldStatus: ContactStatus;
-    newStatus: ContactStatus;
+    oldStatus: Contact["status"];
+    newStatus: Contact["status"];
 }
 
 interface ContactEvents {
