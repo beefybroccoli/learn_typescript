@@ -1,2 +1,1 @@
-./node_modules
-./ch02_basic_types/node_modules
+/mastering_typescript/ch02_basic_types/node_modules
